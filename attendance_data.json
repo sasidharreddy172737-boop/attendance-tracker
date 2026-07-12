@@ -1,0 +1,44 @@
+{
+  "SEM-3": {
+    "name": "SEM-3",
+    "subjects": {}
+  },
+  "SEM-2": {
+    "name": "SEM-2",
+    "subjects": {
+      "PHY": {
+        "name": "PHY",
+        "total_classes": 38,
+        "history": [
+          {
+            "STATUS": "P",
+            "DATE": "2026-07-12"
+          },
+          {
+            "STATUS": "P",
+            "DATE": "2026-07-12"
+          }
+        ]
+      },
+      "IKS": {
+        "name": "IKS",
+        "total_classes": 12,
+        "history": [
+          {
+            "STATUS": "P",
+            "DATE": "2026-07-12"
+          },
+          {
+            "STATUS": "P",
+            "DATE": "2026-07-12"
+          }
+        ]
+      },
+      "CSE(DSA)": {
+        "name": "CSE(DSA)",
+        "total_classes": 40,
+        "history": []
+      }
+    }
+  }
+}
