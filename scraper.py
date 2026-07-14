@@ -102,7 +102,7 @@ class semester:
 
 
 class attendance:
-    def __init__(self, file="attendance_data.json"):
+    def __init__(self, file):
         self.file = file
         self.Sem = {}
         self.load_data()
