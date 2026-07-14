@@ -1,8 +1,35 @@
 import streamlit as st
 from scraper import attendance
+import json
 
-app = attendance()
 st.title("ATTENDANCE TRACKER")
+if "username" not in st.session_state:
+    st.session_state.username = None
+
+if st.session_state.username is None:
+    st.subheader("ENTER YOUR NAME:")
+    name_input = st.text_input("YOUR NAME:")
+    if st.button("START"):
+        if name_input.strip() != "":
+            clean_name = name_input.strip().replace(" ", "_")
+            st.session_state.username = clean_name
+            st.rerun()
+        else:
+            st.error("Please enter your name")
+
+
+else:
+    col_a, col_b = st.columns([4, 1])
+    with col_a:
+        st.write(f"Logged in as: {st.session_state.username}")
+    with col_b:
+        if st.button("LOGOUT"):
+            st.session_state.username = None
+            st.rerun()
+filename = f"attendance_{st.session_state.username}.json"
+app = attendance(file=filename)
+
+
 
 if "selected_sem" not in st.session_state:
     st.session_state.selected_sem = None
@@ -48,7 +75,7 @@ if st.session_state.selected_sem:
             sem_obj.add_subject(new_sub_name,new_sub_total)
             app.save_data()
             st.write(f"{new_sub_name} ADDED")
-            st.rerun
+            st.rerun()
         else:
             st.error(f"ENTER A SUBJECT NAME")
 if st.session_state.selected_sem:
